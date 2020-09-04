@@ -1,0 +1,410 @@
+<!-- <script type="text/javascript">
+let url=document.location.href.split("content=")[1];
+document.write(url)
+</script> -->
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title></title>
+		<style type="text/css">
+			.loadding {
+				background: rgba(255, 255, 255, 1);
+				position: fixed;
+				width: 100%;
+				height: 100vh;
+				top: 0;
+				left: 0;
+				right: 0;
+				z-index: 100;
+			}
+
+
+
+			.loading-column {
+
+				width: 100%;
+				height: 100%;
+
+				margin: 5px;
+
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				// margin-top: 50%;
+
+			}
+
+			.loading-container {
+				width: 30px;
+				height: 30px;
+				position: relative;
+				// left: calc(50% - 30px);
+				// top: calc(50% - 30px);
+			}
+
+			.loading-container.animation-6 {
+				-webkit-animation: rotation 1s infinite;
+				animation: rotation 1s infinite;
+			}
+
+			.loading-container.animation-6 .shape {
+				width: 12px;
+				height: 12px;
+				border-radius: 2px;
+			}
+
+			.loading-container .shape {
+				position: absolute;
+				width: 10px;
+				height: 10px;
+				border-radius: 1px;
+			}
+
+			.loading-container .shape.shape1 {
+				left: 0;
+				background-image: linear-gradient(252deg,
+					#15c180 0%,
+					#2fcf88 43%,
+					#48dc90 100%),
+					linear-gradient(#9a6e6e,
+					#9a6e6e);
+			}
+
+			.loading-container .shape.shape2 {
+				right: 0;
+				background-image: linear-gradient(252deg,
+					#15c180 0%,
+					#2fcf88 43%,
+					#48dc90 100%),
+					linear-gradient(#9a6e6e,
+					#9a6e6e);
+			}
+
+			.loading-container .shape.shape3 {
+				bottom: 0;
+				background-image: linear-gradient(252deg,
+					#15c180 0%,
+					#2fcf88 43%,
+					#48dc90 100%),
+					linear-gradient(#9a6e6e,
+					#9a6e6e);
+			}
+
+			.loading-container .shape.shape4 {
+				bottom: 0;
+				right: 0;
+				background-image: linear-gradient(252deg,
+					#15c180 0%,
+					#2fcf88 43%,
+					#48dc90 100%),
+					linear-gradient(#9a6e6e,
+					#9a6e6e);
+			}
+
+			@-webkit-keyframes rotation {
+				from {
+					-webkit-transform: rotate(0deg);
+					transform: rotate(0deg);
+				}
+
+				to {
+					-webkit-transform: rotate(360deg);
+					transform: rotate(360deg);
+				}
+			}
+
+			@keyframes rotation {
+				from {
+					-webkit-transform: rotate(0deg);
+					transform: rotate(0deg);
+				}
+
+				to {
+					-webkit-transform: rotate(360deg);
+					transform: rotate(360deg);
+				}
+			}
+
+			.animation-6 .shape1 {
+				-webkit-animation: animation6shape1 2s linear 0s infinite normal;
+				animation: animation6shape1 2s linear 0s infinite normal;
+			}
+
+			@-webkit-keyframes animation6shape1 {
+				0% {
+					-webkit-transform: translate(0, 0);
+					transform: translate(0, 0);
+				}
+
+				25% {
+					-webkit-transform: translate(0, 18px);
+					transform: translate(0, 18px);
+				}
+
+				50% {
+					-webkit-transform: translate(18px, 18px);
+					transform: translate(18px, 18px);
+				}
+
+				75% {
+					-webkit-transform: translate(18px, 0);
+					transform: translate(18px, 0);
+				}
+			}
+
+			@keyframes animation6shape1 {
+				0% {
+					-webkit-transform: translate(0, 0);
+					transform: translate(0, 0);
+				}
+
+				25% {
+					-webkit-transform: translate(0, 18px);
+					transform: translate(0, 18px);
+				}
+
+				50% {
+					-webkit-transform: translate(18px, 18px);
+					transform: translate(18px, 18px);
+				}
+
+				75% {
+					-webkit-transform: translate(18px, 0);
+					transform: translate(18px, 0);
+				}
+			}
+
+			.animation-6 .shape2 {
+				-webkit-animation: animation6shape2 2s linear 0s infinite normal;
+				animation: animation6shape2 2s linear 0s infinite normal;
+			}
+
+			@-webkit-keyframes animation6shape2 {
+				0% {
+					-webkit-transform: translate(0, 0);
+					transform: translate(0, 0);
+				}
+
+				25% {
+					-webkit-transform: translate(-18px, 0);
+					transform: translate(-18px, 0);
+				}
+
+				50% {
+					-webkit-transform: translate(-18px, 18px);
+					transform: translate(-18px, 18px);
+				}
+
+				75% {
+					-webkit-transform: translate(0, 18px);
+					transform: translate(0, 18px);
+				}
+			}
+
+			@keyframes animation6shape2 {
+				0% {
+					-webkit-transform: translate(0, 0);
+					transform: translate(0, 0);
+				}
+
+				25% {
+					-webkit-transform: translate(-18px, 0);
+					transform: translate(-18px, 0);
+				}
+
+				50% {
+					-webkit-transform: translate(-18px, 18px);
+					transform: translate(-18px, 18px);
+				}
+
+				75% {
+					-webkit-transform: translate(0, 18px);
+					transform: translate(0, 18px);
+				}
+			}
+
+			.animation-6 .shape3 {
+				-webkit-animation: animation6shape3 2s linear 0s infinite normal;
+				animation: animation6shape3 2s linear 0s infinite normal;
+			}
+
+			@-webkit-keyframes animation6shape3 {
+				0% {
+					-webkit-transform: translate(0, 0);
+					transform: translate(0, 0);
+				}
+
+				25% {
+					-webkit-transform: translate(18px, 0);
+					transform: translate(18px, 0);
+				}
+
+				50% {
+					-webkit-transform: translate(18px, -18px);
+					transform: translate(18px, -18px);
+				}
+
+				75% {
+					-webkit-transform: translate(0, -18px);
+					transform: translate(0, -18px);
+				}
+			}
+
+			@keyframes animation6shape3 {
+				0% {
+					-webkit-transform: translate(0, 0);
+					transform: translate(0, 0);
+				}
+
+				25% {
+					-webkit-transform: translate(18px, 0);
+					transform: translate(18px, 0);
+				}
+
+				50% {
+					-webkit-transform: translate(18px, -18px);
+					transform: translate(18px, -18px);
+				}
+
+				75% {
+					-webkit-transform: translate(0, -18px);
+					transform: translate(0, -18px);
+				}
+			}
+
+			.animation-6 .shape4 {
+				-webkit-animation: animation6shape4 2s linear 0s infinite normal;
+				animation: animation6shape4 2s linear 0s infinite normal;
+			}
+
+			@-webkit-keyframes animation6shape4 {
+				0% {
+					-webkit-transform: translate(0, 0);
+					transform: translate(0, 0);
+				}
+
+				25% {
+					-webkit-transform: translate(0, -18px);
+					transform: translate(0, -18px);
+				}
+
+				50% {
+					-webkit-transform: translate(-18px, -18px);
+					transform: translate(-18px, -18px);
+				}
+
+				75% {
+					-webkit-transform: translate(-18px, 0);
+					transform: translate(-18px, 0);
+				}
+			}
+
+			@keyframes animation6shape4 {
+				0% {
+					-webkit-transform: translate(0, 0);
+					transform: translate(0, 0);
+				}
+
+				25% {
+					-webkit-transform: translate(0, -18px);
+					transform: translate(0, -18px);
+				}
+
+				50% {
+					-webkit-transform: translate(-18px, -18px);
+					transform: translate(-18px, -18px);
+				}
+
+				75% {
+					-webkit-transform: translate(-18px, 0);
+					transform: translate(-18px, 0);
+				}
+			}
+		</style>
+	</head>
+	<body>
+<!-- 		<div id="loadding" class="loadding">
+			<div class="loading-column">
+				<div class="loading-container animation-6">
+					<div class="shape shape1"></div>
+					<div class="shape shape2"></div>
+					<div class="shape shape3"></div>
+					<div class="shape shape4"></div>
+				</div>
+			</div>
+		</div> -->
+		<form action="https://secure.cinetpay.com" method="post">
+			<input type="text" id="apikey" name="apikey" value="14521825885f1a9e18c1df14.88081706">
+			<input type="text" id="cpm_site_id" name="cpm_site_id" value="464717">
+			<input type="text" id="cpm_currency" name="cpm_currency" value="CFA">
+			<input type="text" name="cpm_page_action" value="PAYMENT"> <input type="text" name="cpm_payment_config" value="SINGLE">
+			<input type="text" name="cpm_version" value="V2">
+			<input type="text" name="cpm_language" value="fr">
+			<input type="text" id="cpm_trans_date" name="cpm_trans_date" value="1596089246">
+			<!-- <input type="text" name="cel_phone_num" value="1596089246"> -->
+			<input type="text" id="cpm_trans_id" name="cpm_trans_id" value="sxwm15960727218394702165">
+			<input type="text" name="cpm_designation" value="Frais à emporter">
+			<input type="text" id="cpm_amount" name="cpm_amount" value="20">
+			<input type="text" id="signature" name="signature" value="eeb4947dc5199bcf48aa96287205e1e2bed1eb4ceebe559c5b7667fb227e9d3e6248">
+			<input type="text" name="cpm_custom" value="acheteurs">
+			<input type="text" name="notify_url" value="http://sxwm.xundong.top/notify">
+			<input type="text" name="return_url" value="uniFriut://">
+			<input type="text" name="cancel_url" value="https://www.yourdomain.ci">
+			<input type="text" name="debug" value="0">
+			<button id="button2"  class="cinetpay-button large" type="submit">Buy</button>
+
+		</form>
+	</body>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script type="text/javascript">
+		let content=""
+		function getRequest() {
+			var url = location.search; //获取url中"?"符后的字串
+			var theRequest = new Object();
+			if (url.indexOf("?") != -1) {
+				var str = url.substr(1);
+				strs = str.split("&");
+				for (var i = 0; i < strs.length; i++) {
+					theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+				}
+			}
+			return theRequest;
+		}
+		$.ajax({url:"http://sxwm.xundong.top/home/vehicleAdd",method:"post",headers:{Authorization:"Bearer"+" "+"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI1ZjNlMWI5NWE3MDg5IiwiaWF0IjoxNTk3OTA1ODEzLCJuYmYiOjE1OTc5MDU4MTMsImV4cCI6MTYwMDQ5NzgxMywidWlkIjoyLCJ1c2VybmFtZSI6Ilx1NWJhMlx1NjIzNzIifQ.l081oZumn8N-O9Z6wuU1mCa-FuY5xDy5T_qXjsggYEo"},data:{goods_id:23,num:100,uid:2},async:false,success:res=>{
+			console.log(res)
+		}})
+		let sendData={"uid":2,"site_id":6,"discounts":"","start":1597971600,"end":1597975200,"payment":1,"location":"5.35882,-3.96675","remark":"","goods":"[{\"goods_id\":23,\"goods\":\"1\",\"number\":\"100\"}]"}
+		$.ajax({url:"http://sxwm.xundong.top/home/confirmOrder",method:"post",data:sendData,headers:{Authorization:"Bearer"+" "+"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI1ZjNlMWI5NWE3MDg5IiwiaWF0IjoxNTk3OTA1ODEzLCJuYmYiOjE1OTc5MDU4MTMsImV4cCI6MTYwMDQ5NzgxMywidWlkIjoyLCJ1c2VybmFtZSI6Ilx1NWJhMlx1NjIzNzIifQ.l081oZumn8N-O9Z6wuU1mCa-FuY5xDy5T_qXjsggYEo"},async:false,success:res=>{
+			console.log(res)
+			content=res
+		}})
+
+		let url = window.location.href;
+		console.log(url)
+		console.log(getRequest())
+		let apikey = document.getElementById("apikey");
+		let cpm_site_id = document.getElementById("cpm_site_id");
+		let cpm_currency = document.getElementById("cpm_currency");
+		let cpm_trans_date = document.getElementById("cpm_trans_date");
+		let cpm_trans_id = document.getElementById("cpm_trans_id");
+		let cpm_amount = document.getElementById("cpm_amount");
+		let signature = document.getElementById("signature");
+		// let content = JSON.parse(decodeURIComponent(getRequest().content))
+		console.log(content)
+		apikey.value=content.apikey;
+		
+		cpm_site_id.value=content.cpm_site_id;
+		cpm_currency.value=content.cpm_currency;
+		cpm_trans_date.value=content.cpm_trans_date;
+		cpm_trans_id.value=content.cpm_trans_id;
+		cpm_amount.value=content.cpm_amount;
+		signature.value=content.signature;
+// 		setTimeout(()=>{
+// 			document.getElementById("button2").click();
+// 		},200)
+		
+	</script>
+</html>

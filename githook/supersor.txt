@@ -1,0 +1,40 @@
+#数飞商城
+[program:shufeishop]
+directory=/www/wwwroot/shufeishop.gzyxxy.com/
+command=php ./bin/hyperf.php start
+#小程序打卡
+[program:clock]
+directory=/www/wwwroot/clock/
+command=php ./bin/hyperf.php start
+#聚合支付
+[program:juhezhifu]
+directory=/www/wwwroot/juhezhifu/
+command=php ./bin/hyperf.php start
+#毕设
+[program:biye]
+directory=/www/wwwroot/biye.sheji.com/
+command=php ./bin/hyperf.php start
+#南孚电池
+[program:battery]
+directory=/www/wwwroot/battery/
+command=php ./bin/hyperf.php start
+#万卷书屋
+[program:bookstore]
+directory=/www/wwwroot/bookstore/
+command=php ./bin/hyperf.php start
+#会议系统
+[program:meet]
+directory=/www/wwwroot/meet.gzyxxy.com/
+command=php ./bin/hyperf.php start
+#客户系统
+[program:ding]
+directory=/www/wwwroot/ding.gzyxxy.com/
+command=php ./bin/hyperf.php start
+#四年便利店
+[program:ding]
+directory=/www/wwwroot/hyperf/cwt_20200319/
+command=php ./bin/hyperf.php start
+#废品回收
+#[program:waste]
+#directory=/www/wwwroot/waste/
+#command=php ./bin/hyperf.php start

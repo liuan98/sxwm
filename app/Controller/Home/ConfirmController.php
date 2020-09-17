@@ -297,14 +297,14 @@ class ConfirmController extends AbstractController
      * Date: 2020/7/30 9:48
      * 支付回调
      */
-    public function notify(){
+    public function notify(ResponseInterface $response){
         $all = $this->request->all();
 
         var_dump($all,__LINE__);
         if($all['cpm_result'] == 00){
             $time = strtotime($all['cpm_trans_date']);
             Confirm::getInstance()->where('order_number',$all['cpm_trans_id'])->update(['status'=>3,'pay_time'=>$time]);
-            return '';
+            return $response->redirect('http://www.baidu.com');
         }else{
             return '';
         }

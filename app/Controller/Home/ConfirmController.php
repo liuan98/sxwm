@@ -304,6 +304,7 @@ class ConfirmController extends AbstractController
         if($all['cpm_result'] == 00){
             $time = strtotime($all['cpm_trans_date']);
             Confirm::getInstance()->where('order_number',$all['cpm_trans_id'])->update(['status'=>3,'pay_time'=>$time]);
+            var_dump('支付回调',__LINE__);
             return $response->redirect('http://www.baidu.com');
         }else{
             return '';

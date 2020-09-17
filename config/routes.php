@@ -181,7 +181,7 @@ Router::addGroup('/home', function () {
     Router::addRoute(['GET', 'POST', 'HEAD'], '/codeList', 'App\Controller\Home\WuploadController@codeList');//分享app首页
     Router::addRoute(['GET', 'POST', 'HEAD'], '/getCoupon', 'App\Controller\Home\WuploadController@getCoupon');//领取优惠劵
     Router::addRoute(['GET', 'POST', 'HEAD'], '/getRegister', 'App\Controller\Home\WuploadController@getRegister');//邀请注册
-    Router::addRoute(['GET', 'POST', 'HEAD'], '/getCode', 'App\Controller\Home\WuploadController@getCode');//下载二维码
+
 
     Router::addRoute(['GET', 'POST', 'HEAD'], '/getOrder', 'App\Controller\Home\OrderListController@getOrder');//订单列表
     Router::addRoute(['GET', 'POST', 'HEAD'], '/getStay', 'App\Controller\Home\OrderListController@getStay');//待评价
@@ -213,3 +213,5 @@ Router::addRoute(['GET', 'POST', 'HEAD'], '/addfff', 'App\Controller\Home\Confir
 Router::addRoute(['GET', 'POST', 'HEAD'], '/confirmOrder', 'App\Controller\Home\ConfirmController@confirmOrder');//确认订单
 
 Router::addRoute(['GET', 'POST', 'HEAD'], '/addlist', 'App\Controller\Admin\LoginController@addlist');
+
+Router::addRoute(['GET', 'POST', 'HEAD'], '/getCode', 'App\Controller\Home\WuploadController@getCode');//下载二维码

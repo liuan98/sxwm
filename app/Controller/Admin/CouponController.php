@@ -124,19 +124,8 @@ class CouponController extends AbstractController
                 }
 
             }
-
-//            foreach ($list as $k => $v){
-//                $new[$k]['id'] = $v['id'];
-//                $new[$k]['name'] = $v['name'];
-//                $new[$k]['way'] = $v['way'] == 0?'Recevoir un centre de bons':'inviter'.$v['way']."Réclamation d'amis";
-//                $new[$k]['money'] = empty($v['full'])?$v['not']:$v['full'].'-'.$v['not'];
-//                $new[$k]['count'] = $v['count'] == 999999999?'Illimité':$v['count'];
-//                $new[$k]['restrict'] = $v['restrict'];
-//                $new[$k]['end'] = empty($v['end'])?'Période de validité'.$v['day'].'journée':date('Y-m-d h:i:s',$v['start']).'à'.date('Y-m-d h:i:s',$v['end']);
-//                $new[$k]['add_time'] = date('Y-m-d h:i:s',$v['add_time']);
-//            }
             $new = array_values($new);
-            var_dump(objectToArray($new),__LINE__);
+//            var_dump(objectToArray($new),__LINE__);
             return success(objectToArray($new));
         }else{
             $data = Coupon::getInstance()->coupon($where);
@@ -159,21 +148,19 @@ class CouponController extends AbstractController
                 $list[$i]['update'] = $data[$i]['update'];
                 if($list[$i]['end'] > time() && $list[$i]['count'] > 0){
                     unset($list[$i]);
+                }else{
+                    $new[$i]['id'] = $list[$i]['id'];
+                    $new[$i]['name'] = $list[$i]['name'];
+                    $new[$i]['way'] = $list[$i]['way'] == 0?'Recevoir un centre de bons':'inviter'.$list[$i]['way']."Réclamation d'amis";
+                    $new[$i]['money'] = empty($list[$i]['full'])?$list[$i]['not']:$list[$i]['full'].'-'.$list[$i]['not'];
+                    $new[$i]['count'] = $list[$i]['count'] == 999999999?'Illimité':$list[$i]['count'];
+                    $new[$i]['restrict'] = $list[$i]['restrict'];
+                    $new[$i]['end'] = empty($list[$i]['end'])?'Période de validité'.$list[$i]['day'].'journée':date('Y-m-d h:i:s',$list[$i]['start']).'à'.date('Y-m-d h:i:s',$list[$i]['end']);
+                    $new[$i]['add_time'] = date('Y-m-d h:i:s',$list[$i]['add_time']);
                 }
             }
-
-            foreach ($list as $k => $v){
-                $new[$k]['id'] = $v['id'];
-                $new[$k]['name'] = $v['name'];
-                $new[$k]['way'] = $v['way'] == 0?'Recevoir un centre de bons':'inviter'.$v['way']."Réclamation d'amis";
-                $new[$k]['money'] = empty($v['full'])?$v['not']:$v['full'].'-'.$v['not'];
-                $new[$k]['count'] = $v['count'] == 999999999?'Illimité':$v['count'];
-                $new[$k]['restrict'] = $v['restrict'];
-                $new[$k]['end'] = empty($v['end'])?'Période de validité'.$v['day'].'journée':date('Y-m-d h:i:s',$v['start']).'à'.date('Y-m-d h:i:s',$v['end']);
-                $new[$k]['add_time'] = date('Y-m-d h:i:s',$v['add_time']);
-            }
             $new = array_values($new);
-            var_dump(objectToArray($new),__LINE__);
+//            var_dump(objectToArray($new),__LINE__);
             return success(objectToArray($new));
         }
 

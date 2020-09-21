@@ -124,7 +124,7 @@ class CouponController extends AbstractController
                 $new[$k]['end'] = empty($v['end'])?'Période de validité'.$v['day'].'journée':date('Y-m-d h:i:s',$v['start']).'à'.date('Y-m-d h:i:s',$v['end']);
                 $new[$k]['add_time'] = date('Y-m-d h:i:s',$v['add_time']);
             }
-            return success($new);
+            return success(objectToArray($new));
         }else{
             $data = Coupon::getInstance()->coupon($where);
 
@@ -158,7 +158,7 @@ class CouponController extends AbstractController
                 $new[$k]['end'] = empty($v['end'])?'Période de validité'.$v['day'].'journée':date('Y-m-d h:i:s',$v['start']).'à'.date('Y-m-d h:i:s',$v['end']);
                 $new[$k]['add_time'] = date('Y-m-d h:i:s',$v['add_time']);
             }
-            return success($new);
+            return success(objectToArray($new));
         }
 
     }

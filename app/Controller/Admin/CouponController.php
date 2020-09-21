@@ -125,6 +125,7 @@ class CouponController extends AbstractController
                 $new[$k]['end'] = empty($v['end'])?'Période de validité'.$v['day'].'journée':date('Y-m-d h:i:s',$v['start']).'à'.date('Y-m-d h:i:s',$v['end']);
                 $new[$k]['add_time'] = date('Y-m-d h:i:s',$v['add_time']);
             }
+            $new = array_values($new);
             var_dump(objectToArray($new),__LINE__);
             return success(objectToArray($new));
         }else{

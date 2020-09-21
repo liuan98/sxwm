@@ -95,7 +95,7 @@ class CouponController extends AbstractController
         if(empty($status)){
             $data = Coupon::getInstance()->couponList($where);
             $num = count($data) - 1;
-
+            $list = [];
             for ($i=0; $i<=$num; $i++)
             {
                 $list[$i]['id'] = $data[$i]['id'];

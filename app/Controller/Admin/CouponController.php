@@ -91,7 +91,7 @@ class CouponController extends AbstractController
         $where[] = $id > 0 ? ['id', '<', $id] : ['id', '>', 0];
 
         $status = $this->request->input('status');
-        $new = [];
+
         if(empty($status)){
             $data = Coupon::getInstance()->couponList($where);
             $num = count($data) - 1;
@@ -124,7 +124,7 @@ class CouponController extends AbstractController
                 $new[$k]['end'] = empty($v['end'])?'Période de validité'.$v['day'].'journée':date('Y-m-d h:i:s',$v['start']).'à'.date('Y-m-d h:i:s',$v['end']);
                 $new[$k]['add_time'] = date('Y-m-d h:i:s',$v['add_time']);
             }
-            var_dump($new,__LINE__);
+            var_dump(objectToArray($new),__LINE__);
             return success(objectToArray($new));
         }else{
             $data = Coupon::getInstance()->coupon($where);
@@ -159,7 +159,7 @@ class CouponController extends AbstractController
                 $new[$k]['end'] = empty($v['end'])?'Période de validité'.$v['day'].'journée':date('Y-m-d h:i:s',$v['start']).'à'.date('Y-m-d h:i:s',$v['end']);
                 $new[$k]['add_time'] = date('Y-m-d h:i:s',$v['add_time']);
             }
-            var_dump($new,__LINE__);
+            var_dump(objectToArray($new),__LINE__);
             return success(objectToArray($new));
         }
 

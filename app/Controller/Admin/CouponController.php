@@ -114,6 +114,7 @@ class CouponController extends AbstractController
                     unset($list[$i]);
                 }
             }
+            var_dump($list);die;
             foreach ($list as $k => $v){
                 $new[$k]['id'] = $v['id'];
                 $new[$k]['name'] = $v['name'];

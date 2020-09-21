@@ -170,16 +170,17 @@ class HomepageController extends AbstractController
         $where[] = $id > 0 ? ['c.id', '<', $id] : ['c.id', '>', 0];
         $where[] = ['c.name', 'like', '%'.$name.'%'];
 
-        $location = $this->request->input('location');
-        if (!$location) return fail('Veuillez saisir votre emplacement');
-
-        $url = $location;
-
-        $lists = 'https://maps.googleapis.com/maps/api/geocode/json?latlng='.$url.'&key=AIzaSyBZxAbfgeDc2z6YUOaBs8b0NuQgm_cHLdw&language=pt-br';
-
-        $lists = PostRequest($lists,'');
-
-        $location = $lists['results'][0]['address_components'][1]['long_name'];
+//        $location = $this->request->input('location');
+//        if (!$location) return fail('Veuillez saisir votre emplacement');
+//
+//        $url = $location;
+//
+//        $lists = 'https://maps.googleapis.com/maps/api/geocode/json?latlng='.$url.'&key=AIzaSyBZxAbfgeDc2z6YUOaBs8b0NuQgm_cHLdw&language=pt-br';
+//
+//        $lists = PostRequest($lists,'');
+//
+//        $location = $lists['results'][0]['address_components'][1]['long_name'];
+        $location = "Cocody";
 
         $new = Warehouse::getInstance()->location($location);
         if(empty($new['id'])){

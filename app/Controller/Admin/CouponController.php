@@ -114,7 +114,7 @@ class CouponController extends AbstractController
                     unset($list[$i]);
                 }
             }
-            var_dump(objectToArray($list));die;
+
             foreach ($list as $k => $v){
                 $new[$k]['id'] = $v['id'];
                 $new[$k]['name'] = $v['name'];
@@ -134,23 +134,23 @@ class CouponController extends AbstractController
 
             for ($i=0; $i<=$num; $i++)
             {
-                $list['id'] = $data[$i]['id'];
-                $list['name'] = $data[$i]['name'];
-                $list['full'] = $data[$i]['full'];
-                $list['not'] = $data[$i]['not'];
-                $list['start'] = $data[$i]['start'];
-                $list['end'] = $data[$i]['end'];
-                $list['day'] = $data[$i]['day'];
-                $list['way'] = $data[$i]['way'];
-                $list['restrict'] = $data[$i]['restrict'];
-                $list['count'] = $data[$i]['count'];
-                $list['add_time'] = $data[$i]['add_time'];
-                $list['update'] = $data[$i]['update'];
+                $list[$i]['id'] = $data[$i]['id'];
+                $list[$i]['name'] = $data[$i]['name'];
+                $list[$i]['full'] = $data[$i]['full'];
+                $list[$i]['not'] = $data[$i]['not'];
+                $list[$i]['start'] = $data[$i]['start'];
+                $list[$i]['end'] = $data[$i]['end'];
+                $list[$i]['day'] = $data[$i]['day'];
+                $list[$i]['way'] = $data[$i]['way'];
+                $list[$i]['restrict'] = $data[$i]['restrict'];
+                $list[$i]['count'] = $data[$i]['count'];
+                $list[$i]['add_time'] = $data[$i]['add_time'];
+                $list[$i]['update'] = $data[$i]['update'];
                 if($list[$i]['end'] > time() && $list[$i]['count'] > 0){
                     unset($list[$i]);
                 }
             }
-            var_dump(objectToArray($list));die;
+
             foreach ($list as $k => $v){
                 $new[$k]['id'] = $v['id'];
                 $new[$k]['name'] = $v['name'];

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>goods</title>
+		<script src="./jquery-3.4.1.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+
+			.body {
+				width: 100%;
+				height: 100%;
+			}
+
+			.header-img {
+				width: 100%;
+				height: 90%;
+			}
+
+			#header {
+				width: 100%;
+				object-fit: contain;
+				margin: 0 auto;
+			}
+
+			#herf-div {
+				width: 80%;
+				/* height: 2rem; */
+				background-color: #07C160;
+
+			}
+
+			#herf-div a {
+				color: #fff;
+			}
+
+			#download-div {
+				width: 80%;
+				color: #07C160;
+				/* height: 2rem; */
+
+			}
+
+			#download-div a {
+				color: #07C160;
+			}
+
+			#bottom {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+
+			#bottom div {
+				border-radius: 1.5rem;
+				margin: 0.8rem auto;
+				border: 1px solid #07C160;
+				width: 70%;
+				text-align: center;
+				height: 40px;
+				line-height: 40px;
+
+			}
+
+
+			/*包含以下五种的链接*/
+			a {
+				text-decoration: none;
+			}
+
+			/*正常的未被访问过的链接*/
+			a:link {
+				text-decoration: none;
+			}
+
+			/*已经访问过的链接*/
+			a:visited {
+				text-decoration: none;
+			}
+
+			/*鼠标划过(停留)的链接*/
+			a:hover {
+				text-decoration: none;
+			}
+
+			/* 正在点击的链接，鼠标在元素上按下还没有松开*/
+			a:active {
+				text-decoration: none;
+			}
+
+			/* 获得焦点的时候 鼠标松开时显示的颜色*/
+			a:focus {
+				text-decoration: none;
+			}
+		</style>
+	</head>
+	<body style="font-size: 16px;">
+		<!-- < -->
+		<!-- <button type="button" id><a href="" id="herf" style="display: none;">打开app</a></button> -->
+		<div id="header-img">
+			<img id="header" src="./download.jpg">
+		</div>
+		<div id="bottom">
+			<div id="herf-div">
+				<a href="" id="herf">Ouvrez l'appli</a>
+			</div>
+			<div id="download-div">
+				<a href="" id="download" download="Topfrais">Téléchargez l'appli</a>
+			</div>
+
+		</div>
+
+		<!-- <a href=""></a> -->
+		<script type="text/javascript">
+			(function() {
+				//这个对象在唤起app的需求中是通用的，作用是判断当前为哪个客户端
+				var browser = {
+					versions: function() {
+						var u = navigator.userAgent,
+							app = navigator.appVersion;
+						return {
+							trident: u.indexOf('Trident') > -1, //IE内核
+							presto: u.indexOf('Presto') > -1, //opera内核
+							webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+							gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+							mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+							ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+							android: u.indexOf('Android') > -1 || u.indexOf('Adr') > -1, //android终端
+							iPhone: u.indexOf('iPhone') > -1, //是否为iPhone或者QQHD浏览器
+							iPad: u.indexOf('iPad') > -1, //是否iPad
+							webApp: u.indexOf('Safari') == -1, //是否web应该程序，没有头部与底部
+							weixin: u.indexOf('MicroMessenger') > -1, //是否微信 （2015-01-22新增）
+							qq: u.match(/\sQQ/i) == " qq" //是否QQ
+						};
+					}(),
+					language: (navigator.browserLanguage || navigator.language).toLowerCase()
+				};
+
+				var appInfo = {
+					iosUrl: "uniFriut://id=" + getRequest().id, //当前为网页版应用链接，需更换成app的跳转链接
+					androidUrl: "uniFriut://id=" + getRequest().id //当前为网页版应用链接，需更换成app的跳转链接
+				};
+
+				var count = 0;
+				var i = appInfo.androidUrl;
+				var n = appInfo.iosUrl;
+				var ele = document.getElementsByTagName('body')[0];
+				// ele.addEventListener('touchstart', function() {
+					// count++;
+					// if (count>=3) {
+						function getUrl(){
+					if (browser.versions.ios) {
+						console.log("ios");
+						
+						// window.location.href = n;
+						document.getElementById("herf").href=n
+						//设置定时器的目的是如果第一个app没有安装，则自动跳转第二个
+						// setTimeout(function() {
+						// 	window.location.href = "http://www.bellavieci.com/h5/index.html#/";
+						// }, 3000);
+					} else if (browser.versions.android) {
+						console.log("android");
+						// window.location.href = i;
+						document.getElementById("herf").href=n
+						// setTimeout(function() {
+						// 	window.location.href = "http://www.bellavieci.com/h5/index.html#/";
+						// }, 3000);
+					}
+					// }
+				// })
+				}
+				getUrl()
+			})();
+			
+			function getRequest() {
+				var url = location.search; //获取url中"?"符后的字串
+				var theRequest = new Object();
+				if (url.indexOf("?") != -1) {
+					var str = url.substr(1);
+					strs = str.split("&");
+					for (var i = 0; i < strs.length; i++) {
+						theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+					}
+				}
+				return theRequest;
+			}
+			getDownload()
+			// 获取下载链接
+			function getDownload(){
+				let url=window.location.origin;
+				if(window.location.origin=="http://www.bellavieci.com"||window.location.origin=="https://www.bellavieci.com"){
+					url="./"
+				}else{
+					url="http://www.bellavieci.com"
+				}
+				$.ajax({
+					url: url+"/newList",
+					method: "get",
+					datType: "JSON", 
+					
+					contentType: "application/json" ,
+					data:{
+						
+					},
+					success: (res) => {
+						console.log(res)
+						document.getElementById("download").href=res.data
+					},fail:(err)=>{
+						console.log(err)
+					}
+				})
+			}
+			
+			// console.log(getRequest().id)
+			// setTimeout(()=>{
+			// 	location.href="http://www.bellavieci.com/h5/index.html#/"
+			// },500)
+			// let link=document.getElementById("herf");
+			// link.href="uniFriut://id="+getRequest().id;
+			// link.click()
+			// location.href =
+		</script>
+	</body>
+</html>

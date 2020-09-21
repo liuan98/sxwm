@@ -115,14 +115,14 @@ class CouponController extends AbstractController
                 }
             }
             foreach ($list as $k => $v){
-                $new[$k]['id'] = $v['id'];
-                $new[$k]['name'] = $v['name'];
-                $new[$k]['way'] = $v['way'] == 0?'Recevoir un centre de bons':'inviter'.$v['way']."Réclamation d'amis";
-                $new[$k]['money'] = empty($v['full'])?$v['not']:$v['full'].'-'.$v['not'];
-                $new[$k]['count'] = $v['count'] == 999999999?'Illimité':$v['count'];
-                $new[$k]['restrict'] = $v['restrict'];
-                $new[$k]['end'] = empty($v['end'])?'Période de validité'.$v['day'].'journée':date('Y-m-d h:i:s',$v['start']).'à'.date('Y-m-d h:i:s',$v['end']);
-                $new[$k]['add_time'] = date('Y-m-d h:i:s',$v['add_time']);
+                $new[]['id'] = $v['id'];
+                $new[]['name'] = $v['name'];
+                $new[]['way'] = $v['way'] == 0?'Recevoir un centre de bons':'inviter'.$v['way']."Réclamation d'amis";
+                $new[]['money'] = empty($v['full'])?$v['not']:$v['full'].'-'.$v['not'];
+                $new[]['count'] = $v['count'] == 999999999?'Illimité':$v['count'];
+                $new[]['restrict'] = $v['restrict'];
+                $new[]['end'] = empty($v['end'])?'Période de validité'.$v['day'].'journée':date('Y-m-d h:i:s',$v['start']).'à'.date('Y-m-d h:i:s',$v['end']);
+                $new[]['add_time'] = date('Y-m-d h:i:s',$v['add_time']);
             }
             var_dump(objectToArray($new),__LINE__);
             return success(objectToArray($new));
@@ -150,14 +150,14 @@ class CouponController extends AbstractController
                 }
             }
             foreach ($list as $k => $v){
-                $new[$k]['id'] = $v['id'];
-                $new[$k]['name'] = $v['name'];
-                $new[$k]['way'] = $v['way'] == 0?'Recevoir un centre de bons':'inviter'.$v['way']."Réclamation d'amis";
-                $new[$k]['money'] = empty($v['full'])?$v['not']:$v['full'].'-'.$v['not'];
-                $new[$k]['count'] = $v['count'] == 999999999?'Illimité':$v['count'];
-                $new[$k]['restrict'] = $v['restrict'];
-                $new[$k]['end'] = empty($v['end'])?'Période de validité'.$v['day'].'journée':date('Y-m-d h:i:s',$v['start']).'à'.date('Y-m-d h:i:s',$v['end']);
-                $new[$k]['add_time'] = date('Y-m-d h:i:s',$v['add_time']);
+                $new[]['id'] = $v['id'];
+                $new[]['name'] = $v['name'];
+                $new[]['way'] = $v['way'] == 0?'Recevoir un centre de bons':'inviter'.$v['way']."Réclamation d'amis";
+                $new[]['money'] = empty($v['full'])?$v['not']:$v['full'].'-'.$v['not'];
+                $new[]['count'] = $v['count'] == 999999999?'Illimité':$v['count'];
+                $new[]['restrict'] = $v['restrict'];
+                $new[]['end'] = empty($v['end'])?'Période de validité'.$v['day'].'journée':date('Y-m-d h:i:s',$v['start']).'à'.date('Y-m-d h:i:s',$v['end']);
+                $new[]['add_time'] = date('Y-m-d h:i:s',$v['add_time']);
             }
             var_dump(objectToArray($new),__LINE__);
             return success(objectToArray($new));

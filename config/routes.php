@@ -209,6 +209,8 @@ Router::addGroup('/home', function () {
 
 }, ['middleware' => [Phper666\JwtAuth\Middleware\JwtAuthMiddleware::class]]);
 Router::addRoute(['GET', 'POST', 'HEAD'], '/notify', 'App\Controller\Home\ConfirmController@notify');//支付回调
+Router::addRoute(['GET', 'POST', 'HEAD'], '/notifyUrl', 'App\Controller\Home\ConfirmController@notifyUrl');//回调
+
 Router::addRoute(['GET', 'POST', 'HEAD'], '/addfff', 'App\Controller\Home\ConfirmController@addfff');
 Router::addRoute(['GET', 'POST', 'HEAD'], '/confirmOrder', 'App\Controller\Home\ConfirmController@confirmOrder');//确认订单
 

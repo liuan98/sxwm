@@ -334,6 +334,13 @@ class ConfirmController extends AbstractController
 
     }
 
+    //回调
+    public function notifyUrl(){
+        $all = $this->request->all();
+
+        var_dump($all,__LINE__);
+    }
+
 
     public function addfff(RenderInterface $render){
         $data['add'] = 1111;

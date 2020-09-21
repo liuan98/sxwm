@@ -109,6 +109,7 @@ class VehicleController extends AbstractController
      * User: liuan
      * Date: 2020/7/20 15:26
      * @PostApi(path="vehicleDelete", description="购物车删除")
+     * @Query(key="uid|用户id", rule="required")
      * @Query(key="goods_id|1,2,3这样的", rule="required")
      * @ApiResponse(code="-1", description="参数错误")
      * @ApiResponse(code="200", description="成功", schema={"data":1})
@@ -117,9 +118,12 @@ class VehicleController extends AbstractController
         $goods_id = $this->request->input('goods_id');
         if (!$goods_id) return fail('id未填写');
 
+        $uid = $this->request->input('uid');
+        if (!$uid) return fail('id未填写');
+
         $arr = explode(',',$goods_id);
 
-        $list = Vehicle::getInstance()->whereIn('goods_id',$arr)->delete();
+        $list = Vehicle::getInstance()->wehre('uid',$uid)->whereIn('goods_id',$arr)->delete();
         if(!empty($list)){
             return success('删除成功');
         }else{
@@ -127,5 +131,17 @@ class VehicleController extends AbstractController
         }
 
     }
+
+    /**
+     * User: liuan
+     * Date: 2020/9/21 9:29
+     * 返回数据
+     */
+    public function newList(){
+        $list = "http://www.baidu.com";
+
+        return success($list);
+    }
+
 
 }

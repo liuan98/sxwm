@@ -215,3 +215,7 @@ Router::addRoute(['GET', 'POST', 'HEAD'], '/confirmOrder', 'App\Controller\Home\
 Router::addRoute(['GET', 'POST', 'HEAD'], '/addlist', 'App\Controller\Admin\LoginController@addlist');
 
 Router::addRoute(['GET', 'POST', 'HEAD'], '/getCode', 'App\Controller\Home\WuploadController@getCode');//下载二维码
+
+//后面
+Router::addRoute(['GET', 'POST', 'HEAD'], '/newList', 'App\Controller\Home\VehicleController@newList');//链接
+

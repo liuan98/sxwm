@@ -111,9 +111,9 @@ class BalanceController extends AbstractController
         $uid = $this->request->input('uid');
         if (!$uid) return fail("L'ID utilisateur n'est pas renseigné");
 
-        $data['money'] = Member::getInstance()->value('money');
+        $data['money'] = Member::getInstance()->where('id',$uid)->value('money');
 
-        $data['user'] = Balance::getInstance()->where('uid',$uid)->get();
+        $data['user'] = Balance::getInstance()->where('uid',$uid)->orderBy('id','desc')->get();
 
         return success($data);
     }

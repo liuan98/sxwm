@@ -52,7 +52,7 @@ class WuploadController extends AbstractController
         $user = objectToArray(Member::getInstance()->where('id',$uid)->first());
 
         if(empty($user['code'])){
-            $content = 'http://www.bellavieci.com?uid='.$user['id'];
+            $content = 'http://www.bellavieci.com/h5/index.html?uid='.$user['id'];
             $qrCode = new QrCode($content);
 
             header('Content-Type: '.$qrCode->getContentType());

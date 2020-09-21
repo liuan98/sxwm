@@ -91,7 +91,7 @@ class CouponController extends AbstractController
         $where[] = $id > 0 ? ['id', '<', $id] : ['id', '>', 0];
 
         $status = $this->request->input('status');
-
+        $new = [];
         if(empty($status)){
             $data = Coupon::getInstance()->couponList($where);
             $num = count($data) - 1;

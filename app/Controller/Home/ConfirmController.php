@@ -339,6 +339,7 @@ class ConfirmController extends AbstractController
         $all = $this->request->all();
 
         var_dump($all,__LINE__);
+        return $all;
     }
 
 

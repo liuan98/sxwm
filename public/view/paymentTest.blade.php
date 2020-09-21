@@ -16,8 +16,8 @@ $cpSecure = "https://secure.cinetpay.com";
 
 $cpm_trans_date = date("Y-m-d H:i:s");
 $cpm_trans_id = $order_number; //J'ai ajouter 'Test-' pour eviter les duplication dans CP
-$return_url = "http://sxwm.xundong.top/notify"; //Le client sera rediriger vers cette url apres son paiement
-$notify_url = "http://sxwm.xundong.top/notifyUrl";
+$return_url = "http://www.bellavieci.com/notify"; //Le client sera rediriger vers cette url apres son paiement
+$notify_url = "http://www.bellavieci.com/notifyUrl";
 $cancel_url = "";
 $signatureUrl = "https://api.cinetpay.com/v1/?method=getSignatureByPost";
 

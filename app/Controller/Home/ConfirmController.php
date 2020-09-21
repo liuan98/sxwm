@@ -247,6 +247,28 @@ class ConfirmController extends AbstractController
 
         $data['money'] = $data['money'] + $freight['freight'];
 
+        //金额为0的时候
+        if($data['money'] == 0){
+            $data['pay_time'] = time();
+            $data['status'] = 3;//已支付订单
+
+            unset($data['goods']);
+            unset($data['location']);
+            unset($data['moneyNew']);
+
+            $list = Confirm::getInstance()->insert($data);
+
+            foreach ($new as $k => $v){
+                Vehicle::getInstance()->where('goods_id',$v['goods_id'])->delete();
+            }
+            if(!empty($list)){
+                return success('paiement réussi');
+            }else{
+                return fail('Paiement échoué');
+            }
+        }
+
+        //不为0的时候支付
         if($data['payment'] == 1){
             //线上支付
             if($data['money'] < 100){

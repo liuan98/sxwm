@@ -42,7 +42,7 @@ class OrderController extends AbstractController
      * @Query(key="order_number|订单号", rule="")
      * @Query(key="time|下单时间戳", rule="")
      * @ApiResponse(code="-1", description="参数错误")
-     * @ApiResponse(code="200", description="添加成功", schema={"data":{"id":4,"order_number：订单号":"sxwm15954821684126983057","name：名称":"老王","phone：电话":"110","money：金额":"0.00","payment：1线上2线下":2,"start：送货开始":1595298015,"end：送货结束":1595328017,"add_time":1595482168,"status：1提交订单2未支付3已支付4配送中5确认收货6退货中7退货成功8退货失败9取消退货":3,"number：数量":"3"}})
+     * @ApiResponse(code="200", description="添加成功", schema={"data":{"id":4,"order_number：订单号":"sxwm15954821684126983057","name：名称":"老王","phone：电话":"110","money：金额":"0.00","payment：1线上2线下":2,"start：送货开始":1595298015,"end：送货结束":1595328017,"add_time":1595482168,"status：1提交订单2未支付3已支付4配送中5确认收货6退货中7退货成功8退货失败9取消退货":3,"number：数量":"3",'remark：备注':"23432"}})
      */
     public function orderList(){
         $status = $this->request->input("status");

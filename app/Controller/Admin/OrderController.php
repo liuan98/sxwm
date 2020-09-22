@@ -228,7 +228,7 @@ class OrderController extends AbstractController
      * @PostApi(path="orderDetails", description="订单详情")
      * @Query(key="id|订单id", rule="required")
      * @ApiResponse(code="-1", description="参数错误")
-     * @ApiResponse(code="200", description="成功", schema={"data":{"list：买家信息":{"id":4,"order_number：订单号":"sxwm15954821684126983057","name：用户名":"老王","phone：电话":"110","site：地址":"江西南昌","detail：详细地址":"红谷滩万达b1 1313","payment：1线上2线下":2,"start：上门开始时间":1595298015,"end：上门结束时间":1595328017,"status":3,"add_time：下单时间":1595482168,"pay_time：支付时间":1595482168,"deliver_time：发货时间":null,"complete_time：完成时间":null},"order：订单":{"id":14,"name：商品名":"幼儿|棉质裤子","img：图片":"1.jpg","standard：规格":"","number：数量":2,"money：金额":"10.00","price：单个商品总金额":"20.00"},"discounts：优惠金额":10,"balance：余额":20,"deal应付":"0.00"}})
+     * @ApiResponse(code="200", description="成功", schema={"data":{"list：买家信息":{"id":4,"order_number：订单号":"sxwm15954821684126983057","name：用户名":"老王","phone：电话":"110","site：地址":"江西南昌","detail：详细地址":"红谷滩万达b1 1313","payment：1线上2线下":2,"start：上门开始时间":1595298015,"end：上门结束时间":1595328017,"status":3,"add_time：下单时间":1595482168,"pay_time：支付时间":1595482168,"deliver_time：发货时间":null,"complete_time：完成时间":null,"remark：备注":"4234"},"order：订单":{"id":14,"name：商品名":"幼儿|棉质裤子","img：图片":"1.jpg","standard：规格":"","number：数量":2,"money：金额":"10.00","price：单个商品总金额":"20.00"},"discounts：优惠金额":10,"balance：余额":20,"deal应付":"0.00"}})
      */
     public function orderDetails(){
         $id = $this->request->input('id');

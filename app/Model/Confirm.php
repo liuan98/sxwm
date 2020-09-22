@@ -312,15 +312,20 @@ class Confirm extends Model
             ->leftJoin('home_order as o','p.order_number','=','o.order')
             ->leftJoin('home_site as s','p.site_id','=','s.id')
             ->where('p.id',$id)
-            ->select('p.id','p.order_number','s.name','s.phone','s.site','s.detail','p.payment','p.start','p.end','p.status','p.add_time','p.pay_time','p.deliver_time','p.complete_time')
+            ->select('p.id','p.order_number','s.name','s.phone','s.site','s.detail','p.payment','p.start','p.end','p.status','p.add_time','p.pay_time','p.deliver_time','p.complete_time','p.remark')
             ->first());
 
         return $data;
     }
 
     public function transaction(){
-        $data = $this->where('status',5)
-            ->sum('money');
+        $result['start_time'] = strtotime(date('Y-m-01'));//获取月初时间
+        $result['end_time'] = strtotime(date('Y-m-t'));//获取月末时间
+
+        $data = $this->where('status','>',2)
+            ->where('status','!=',7)
+            ->whereBetween('pay_time', [$result['start_time'], $result['end_time']])
+            ->sum('price');
 
         return $data;
     }
@@ -329,8 +334,10 @@ class Confirm extends Model
         $result['start_time'] = strtotime(date('Y-m-d 00:00:00', time()));
         $result['end_time'] = strtotime(date('Y-m-d 23:59:59', time()));
 
-        $data = $this->whereBetween('pay_time', [$result['start_time'], $result['end_time']])
-            ->sum('money');
+        $data = $this->where('status','>',2)
+            ->where('status','!=',7)
+            ->whereBetween('pay_time', [$result['start_time'], $result['end_time']])
+            ->sum('price');
 
         return $data;
     }

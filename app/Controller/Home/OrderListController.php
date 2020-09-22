@@ -143,7 +143,7 @@ class OrderListController extends AbstractController
             $info[$k]['level'] = $data['level'];
             $info[$k]['add_time'] = time();
         }
-        Confirm::getInstance()->wehre('order_number',$serial)->update(['evaluate'=>2]);
+        Confirm::getInstance()->where('order_number',$serial)->update(['evaluate'=>2]);
 
         $list = Evaluate::getInstance()->insert($info);
         if(!empty($list)){

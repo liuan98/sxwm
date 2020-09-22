@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller\Home;
 
+use App\Model\Commodity;
 use App\Model\Confirm;
 use App\Model\Evaluate;
 use App\Model\Member;
@@ -142,6 +143,7 @@ class OrderListController extends AbstractController
             $info[$k]['level'] = $data['level'];
             $info[$k]['add_time'] = time();
         }
+        Confirm::getInstance()->wehre('order_number',$serial)->update(['evaluate'=>2]);
 
         $list = Evaluate::getInstance()->insert($info);
         if(!empty($list)){

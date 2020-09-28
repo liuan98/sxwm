@@ -49,7 +49,7 @@ class GetCouponController extends AbstractController
         if(empty($status)){
             $data = Ticket::getInstance()->ticket($uid);
             foreach ($data as $key=>$val){
-                $getOrderCoupon =  Confirm::query()->where(['discounts'=>$val['id']])->first();
+                $getOrderCoupon =  Confirm::query()->where(['discounts'=>$val['id'],'status'=>2])->first();
                 if($getOrderCoupon){
                     unset($data[$key]);
                 }

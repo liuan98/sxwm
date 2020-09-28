@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller\Home;
 
+use App\Model\Confirm;
 use App\Model\Count;
 use App\Model\Coupon;
 use App\Model\Member;
@@ -47,6 +48,13 @@ class GetCouponController extends AbstractController
 
         if(empty($status)){
             $data = Ticket::getInstance()->ticket($uid);
+            foreach ($data as $key=>$val){
+                $getOrderCoupon =  Confirm::query()->where(['discounts'=>$val['id']])->first();
+                if($getOrderCoupon){
+                    unset($data[$key]);
+                }
+            }
+            $data = array_values($data);
         }elseif ($status == 1){
             $data = Ticket::getInstance()->userCoupon($uid);
         }elseif ($status == 2){

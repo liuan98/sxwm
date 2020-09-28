@@ -67,7 +67,7 @@ class WuploadController extends AbstractController
         $list = objectToArray(Member::getInstance()->where('id',$uid)->first());
         $data['img'] = $list['code'];//二维码
 
-        $data['url'] = 'http://www.bellavieci.com';//链接
+        $data['url'] = 'http://www.bellavieci.com/h5/index.html?uid='.$user['id'];//链接
 
         $data['num'] = Count::getInstance()->codeNum($user);
 

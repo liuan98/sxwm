@@ -192,12 +192,12 @@
 			getDownload()
 			// 获取下载链接
 			function getDownload(){
-				let url=window.location.origin;
-				if(window.location.origin=="http://www.bellavieci.com"||window.location.origin=="https://www.bellavieci.com"){
-					url="./"
-				}else{
-					url="http://www.bellavieci.com"
-				}
+				// let url=window.location.origin;
+				// if(window.location.origin=="http://www.bellavieci.com"||window.location.origin=="https://www.bellavieci.com"){
+				// 	url="./"
+				// }else{
+				// 	url="http://www.bellavieci.com"
+				// }
 				$.ajax({
 					url: url+"/newList",
 					method: "get",

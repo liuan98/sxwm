@@ -47,7 +47,8 @@ export const lang = {
 			emailTip: "请输入邮箱",
 			phoneTip:"请输入手机号",
 			giftCardNumber:"礼品卡号",
-			confirmLoginout:"确认退出"
+			confirmLoginout:"确认退出",
+			newPhone:"新手机号"
 
 		},
 		index: {
@@ -117,7 +118,8 @@ export const lang = {
 			wan:"万",
 			full:"满",
 			freight:"运费",
-			freeShipping:"免运费"
+			freeShipping:"免运费",
+			evaluation:"评价"
 		},
 		comment: {
 			score: "分数",
@@ -267,7 +269,7 @@ export const lang = {
 			none:"该功能暂无",
 			loginExpired:"登录已过期",
 			copySuccess:"复制成功",
-			
+			getRole:"请授权位置权限"
 
 
 		},

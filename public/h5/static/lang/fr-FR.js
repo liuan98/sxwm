@@ -12,7 +12,7 @@ export const lang = {
 			password: '请输入密码',
 			username: '用户名',
 			login: "s'identifier",
-			language: '切换语言',
+			language: 'Langue',
 			langImg: '../../static/cn.png',
 			forget: '忘记密码？',
 			registration: '立即注册',
@@ -275,7 +275,8 @@ export const lang = {
 			evaluation: "Évaluation",
 			none: "Cette fonctionnalité n'est pas disponible",
 			loginExpired: "Connexion expirée",
-			copySuccess: "Copier avec succès"
+			copySuccess: "Copier avec succès",
+			gerRole:"Veuillez autoriser les autorisations de localisation"
 
 		},
 		complaint: {

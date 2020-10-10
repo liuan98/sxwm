@@ -119,7 +119,7 @@ class VehicleController extends AbstractController
         if (!$goods_id) return fail('id未填写');
 
         $uid = $this->request->input('uid');
-        if (!$uid) return fail('id未填写');
+        if (!$uid) return fail('用户id未填写');
 
         $arr = explode(',',$goods_id);
 

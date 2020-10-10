@@ -123,7 +123,7 @@ class VehicleController extends AbstractController
 
         $arr = explode(',',$goods_id);
 
-        $list = Vehicle::getInstance()->wehre('uid',$uid)->whereIn('goods_id',$arr)->delete();
+        $list = Vehicle::getInstance()->where('uid',$uid)->whereIn('goods_id',$arr)->delete();
         if(!empty($list)){
             return success('删除成功');
         }else{

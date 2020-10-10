@@ -209,14 +209,13 @@ class ConfirmController extends AbstractController
                 $data['moneyNew'] = $data['price'] - $coupon['not'];//优惠后金额
             }
             $data['coupon'] = $coupon['not'];
-            var_dump($coupon,__LINE__);
+
             Ticket::getInstance()->where('id',$coupon['id'])->update(['status'=>2,'update'=>time()]);
         }else{
             $data['moneyNew'] = $data['price'];
             $data['coupon'] = 0;
             unset($data['discounts']);
         }
-        var_dump($data['coupon'],__LINE__);
 
         $balance = Member::getInstance()->balanceMoney($data);//用户账户金额
 

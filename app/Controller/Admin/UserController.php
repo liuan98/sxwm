@@ -113,9 +113,9 @@ class UserController extends AbstractController
      * @ApiResponse(code="200", description="成功", schema={"data":{"id":1,"name：名称":"首页","url：路由":"www.baidu.com","add_time：添加时间":1594949293}})
      */
     public function Auth(){
-        $data = Authsss::getInstance()->get();
-
-        return success($data);
+        $data = Authsss::getInstance()->orderBy('id','asc')->get();
+        unset($data[0]);
+        return success(array_values(objectToArray($data)));
     }
 
     /**

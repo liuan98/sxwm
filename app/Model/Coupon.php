@@ -77,7 +77,7 @@ class Coupon extends Model
             ->from('admin_coupon as c')
             ->leftJoin('home_ticket as t','c.id','=','t.coupon_id')
             ->where('t.uid',$data['uid'])
-            ->where('t.coupon_id',$data['discounts'])
+            ->where('t.id',$data['discounts'])
             ->select('t.id','c.full','c.not')
             ->first());
 

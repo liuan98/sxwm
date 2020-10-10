@@ -64,7 +64,7 @@ class Running extends Model
             ->from('admin_running as r')
             ->leftJoin('admin_commodity as c','c.id','=','r.good_id')
             ->leftJoin('admin_warehouse as w','w.id','=','r.warehouse_id')
-            ->leftJoin('admin_repertory as y','y.warehouse_id','=','r.warehouse_id')
+            ->leftJoin('admin_repertory as y','y.warehouse_id','=','r.good_id')
             ->select('r.id','c.number','c.name','w.name as warehouse','y.num as numTwo','r.status','r.num','r.operation','r.add_time')
             ->where($where)
             ->whereBetween('r.add_time', [$last['first'], $last['end']])

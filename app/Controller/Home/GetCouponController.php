@@ -54,6 +54,8 @@ class GetCouponController extends AbstractController
                     unset($data[$key]);
                 }
             }
+            var_dump($data);
+            return $data;
             $data = array_values($data);
         }elseif ($status == 1){
             $data = Ticket::getInstance()->userCoupon($uid);

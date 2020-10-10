@@ -74,6 +74,11 @@ class GoodsController extends AbstractController
         $arr = '1234567890';
         if(empty($info['number'])){
             $info['number'] = 'sxwm'.str_shuffle($arr);
+        }else{
+            $number = Commodity::getInstance()->where('number',$info['number'])->value('number');
+            if(!empty($number)){
+                return fail('编号重复，添加失败');
+            }
         }
         $list = $info['repertory'];
         if(empty($info['restrict'])){
@@ -142,6 +147,11 @@ class GoodsController extends AbstractController
 
         if(empty($info['restrict'])){
             $info['restrict'] = '999999999';
+        }
+
+        $number = Commodity::getInstance()->where('number',$info['number'])->value('number');
+        if(!empty($number)){
+            return fail('编号重复，添加失败');
         }
 
         $info['update'] = time();

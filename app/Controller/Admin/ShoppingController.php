@@ -43,6 +43,10 @@ class ShoppingController extends AbstractController
         if (!$num) return fail("La quantité n'est pas remplie");
         $money = $this->request->input("money");
         if (!$money) return fail("Le montant n'est pas rempli");
+        $new = mb_strlen($money);
+        if($new > 9){
+            return fail("设置金额过长");
+        }
 
         $arr = '1234567890';
         $str="QWERTYUIOPASDFGHJKLZXCVBNM1234567890qwertyuiopasdfghjklzxcvbnm";

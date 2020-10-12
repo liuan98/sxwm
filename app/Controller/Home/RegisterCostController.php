@@ -97,6 +97,8 @@ class RegisterCostController extends AbstractController
      */
     public function verify(){
         $phone = $this->request->input("phone");
+        if (!$phone) return fail("Veuillez entrer le téléphone");
+        $phone = '225'.$phone;
         $redis = $this->container->get(\Hyperf\Redis\Redis::class);
         $code = $this->code(6);
 
@@ -122,7 +124,7 @@ class RegisterCostController extends AbstractController
         curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array("Connection: close"));
         $result = curl_exec($ch);
-        var_dump(curl_exec($ch));
+        var_dump($result,__LINE__);
         if(curl_errno($ch)) {
             $result = "cURL ERROR: " . curl_errno($ch) . " " . curl_error($ch);
         } else {
@@ -135,7 +137,7 @@ class RegisterCostController extends AbstractController
             }
         }
         curl_close($ch);
-        print $result;
+        var_dump($result,__LINE__);
         $redis->set('code'.$phone,$code,180);
         if(!empty($result)){
             return success("Bien envoyé");
